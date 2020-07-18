@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "red-social-NG"
+    }
+  },
+  "defaultProject": "red-social-NG",
+  "cli": {
+    "analytics": false
+  }
 }
