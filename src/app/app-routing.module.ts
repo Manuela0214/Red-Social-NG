@@ -21,6 +21,10 @@ const routes: Routes = [
     path:'parameters',
     loadChildren:() => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
   },
+  {
+    path:'usuario',
+    loadChildren:() => import('./modules/usuario/usuario.module').then(m => m.UsuarioModule)
+  },
   /** this must be the last one (la ultima ruta) */
   //si no existe la ruta que coloquemos, nos manda al /home 
   {
