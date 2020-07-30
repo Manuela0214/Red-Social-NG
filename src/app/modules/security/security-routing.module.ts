@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
-import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
+//import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 import{LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
 import {PasswordResetComponent} from './password-reset/password-reset.component';
