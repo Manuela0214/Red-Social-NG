@@ -13,6 +13,14 @@ const routes: Routes = [
     pathMatch:'full',
     redirectTo: '/home'
   },
+  {
+    path:'security',
+    loadChildren:() => import('./modules/security/security.module').then(m => m.SecurityModule)
+  },
+  {
+    path:'parameters',
+    loadChildren:() => import('./modules/parameters/parameters.module').then(m => m.ParametersModule)
+  },
   /** this must be the last one (la ultima ruta) */
   //si no existe la ruta que coloquemos, nos manda al /home 
   {
