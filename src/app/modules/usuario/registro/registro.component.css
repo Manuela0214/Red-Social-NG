@@ -38,5 +38,7 @@
    position: relative;
  }
 
- 
+ .warning-validator strong{
+   color: red;
+ }
  
