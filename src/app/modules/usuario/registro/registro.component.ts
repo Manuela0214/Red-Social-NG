@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {FormsConfig} from '../../../config/forms-config';
+import { FormsConfig } from '../../../config/forms-config';
+
 declare const showMessage:any;
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,7 +16,8 @@ export class RegistroComponent implements OnInit {
   placesMinLength = FormsConfig.PLACE_MIN_LENGTH;
   celphoneMinLength = FormsConfig.CELPHONE_MIN_LENGTH;
   interesesMinLength = FormsConfig.INTERESES_MIN_LENGTH;
-  generoMaxLength = FormsConfig.GENERO_MAX_LENGTH;
+  generoLength = FormsConfig.GENERO_MAX_LENGTH;
+  
   constructor(private fb:FormBuilder ) { } 
 
   ngOnInit(): void {
@@ -27,12 +30,12 @@ export class RegistroComponent implements OnInit {
       segundo_nombre:['',[Validators.minLength(this.namesMinLength)]],
       primer_apellido:['',[Validators.required,Validators.minLength(this.namesMinLength)]],
       segundo_apellido:['',[Validators.minLength(this.namesMinLength)]],
-      celular:['',[Validators.required,Validators.minLength(this.celphoneMinLength)]],
+      celular:['',[Validators.required,Validators.minLength(this.celphoneMinLength), Validators.maxLength(14)]],
       email:['',[Validators.required,Validators.email]],
       pais:['',[Validators.required,Validators.minLength(this.placesMinLength)]],
       ciudad:['',[Validators.required,Validators.minLength(this.placesMinLength)]],
       fecha_nacimiento:['',[Validators.required]],
-      genero:['',[Validators.minLength(1),Validators.maxLength(this.generoMaxLength)]],
+      genero:['',[Validators.minLength(this.generoLength),Validators.maxLength(this.generoLength)]],
       intereses:['',[Validators.required,Validators.minLength(this.interesesMinLength)]]
     });
   }
@@ -41,7 +44,7 @@ export class RegistroComponent implements OnInit {
     if(this.fgValidator.invalid){
       showMessage("Formulario invalido");
     }else{
-    showMessage("Registrando...");
+      showMessage("Registrando...");
     }  
   }
 

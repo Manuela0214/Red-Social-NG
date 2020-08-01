@@ -9,26 +9,26 @@
             <label for="primer_nombre">Primer nombre</label>
             <div class="warning-validator" *ngIf="fgv.primer_nombre.errors && (fgv.primer_nombre.dirty || fgv.primer_nombre.touched)">
                 <strong *ngIf="fgv.primer_nombre.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.primer_nombre.errors.minlength">
-                    Este campo debería tener almenos {{namesMinLength}} caracteres de longitud
+                    *Minimo {{namesMinLength}} de longitud
                 </strong>
-            </div>   
+            </div>
             </div>
             <div class="input-field col    s6">
             <i class="material-icons prefix">account_circle</i>
             <input id="segundo_nombre" formControlName="segundo_nombre" type="text" >
-            <label for="segundo_nombre">Segundo nombre</label>    
+            <label for="segundo_nombre">Segundo nombre</label>
             <div class="warning-validator" *ngIf="fgv.segundo_nombre.errors && (fgv.segundo_nombre.dirty || fgv.segundo_nombre.touched)">
                 <strong *ngIf="fgv.segundo_nombre.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.segundo_nombre.errors.minlength">
-                    Este campo debería tener almenos {{namesMinLength}} caracteres de longitud
+                    *Minimo {{namesMinLength}} caracteres de longitud
                 </strong>
-            </div> 
-            </div>  
+            </div>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col    s6">
@@ -37,12 +37,12 @@
             <label for="primer_apellido">Primer apellido</label>
             <div class="warning-validator" *ngIf="fgv.primer_apellido.errors && (fgv.primer_apellido.dirty || fgv.primer_apellido.touched)">
                 <strong *ngIf="fgv.primer_apellido.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.primer_apellido.errors.minlength">
-                    Este campo debería tener almenos {{namesMinLength}} caracteres de longitud
+                    *Minimo {{namesMinLength}} caracteres de longitud
                 </strong>
-            </div> 
+            </div>
             </div>
             <div class="input-field col    s6">
             <i class="material-icons prefix">account_circle</i>
@@ -50,12 +50,12 @@
             <label for="segundo_apellido">Segundo apellido</label>
             <div class="warning-validator" *ngIf="fgv.segundo_apellido.errors && (fgv.segundo_apellido.dirty || fgv.segundo_apellido.touched)">
                 <strong *ngIf="fgv.segundo_apellido.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.segundo_apellido.errors.minlength">
-                    Este campo debería tener almenos {{namesMinLength}} caracteres de longitud
+                    *Minimo {{namesMinLength}} caracteres de longitud
                 </strong>
-            </div> 
+            </div>
             </div>
         </div>
         <div class="row">
@@ -65,10 +65,13 @@
             <label for="celular">Celular</label>
             <div class="warning-validator" *ngIf="fgv.celular.errors && (fgv.celular.dirty || fgv.celular.touched)">
                 <strong *ngIf="fgv.celular.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.celular.errors.minlength">
-                    Este campo debería tener almenos {{celphoneMinLength}} caracteres de longitud
+                    *Minimo {{celphoneMinLength}} caracteres de longitud
+                </strong>
+                <strong *ngIf="fgv.celular.errors.maxlength">
+                    *Maximo 14 caracteres de longitud
                 </strong>
             </div>
             </div>
@@ -77,8 +80,11 @@
             <input id="email" formControlName="email" type="email" >
             <label for="email">Email</label>
             <div class="warning-validator" *ngIf="fgv.email.errors && (fgv.email.dirty || fgv.email.touched)">
+                <strong *ngIf="fgv.email.errors.required">
+                    *Requerido
+                </strong>
                 <strong *ngIf="fgv.email.errors.email">
-                    Este campo debe tener con formato correcto de email.
+                    *Formato incorrecto de email
                 </strong>
             </div>
             </div>
@@ -90,10 +96,10 @@
             <label for="pais">Pais</label>
             <div class="warning-validator" *ngIf="fgv.pais.errors && (fgv.pais.dirty || fgv.pais.touched)">
                 <strong *ngIf="fgv.pais.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.pais.errors.minlength">
-                    Este campo debería tener almenos {{placesMinLength}} caracteres de longitud
+                    *Minimo {{placesMinLength}} caracteres de longitud
                 </strong>
             </div>
             </div>
@@ -103,10 +109,10 @@
             <label for="ciudad">Ciudad</label>
             <div class="warning-validator" *ngIf="fgv.ciudad.errors && (fgv.ciudad.dirty || fgv.ciudad.touched)">
                 <strong *ngIf="fgv.ciudad.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
                 <strong *ngIf="fgv.ciudad.errors.minlength">
-                    Este campo debería tener almenos {{placesMinLength}} caracteres de longitud
+                    *Minimo {{placesMinLength}} caracteres de longitud
                 </strong>
             </div>
             </div>
@@ -118,10 +124,13 @@
             <label for="genero">Genero</label>
             <div class="warning-validator" *ngIf="fgv.genero.errors && (fgv.genero.dirty || fgv.genero.touched)">
                 <strong *ngIf="fgv.genero.errors.required">
-                    Este campo es requerido.
+                    *Requerido
+                </strong>
+                <strong *ngIf="fgv.genero.errors.minlength">
+                    *Solo {{generoLength}} caracter (F/M)
                 </strong>
                 <strong *ngIf="fgv.genero.errors.maxlength">
-                    Este campo debería tener máximo {{generoMaxLength}} caracter (F/M/O).
+                    *Solo {{generoLength}} caracter (F/M)
                 </strong>
             </div>
             </div>
@@ -130,7 +139,7 @@
             <label for="fecha_nacimiento">Fecha Nacimiento</label>
             <div class="warning-validator" *ngIf="fgv.fecha_nacimiento.errors && (fgv.fecha_nacimiento.dirty || fgv.fecha_nacimiento.touched)">
                 <strong *ngIf="fgv.fecha_nacimiento.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
             </div>
             </div>
@@ -140,10 +149,10 @@
             <label for="intereses">Intereses</label>
             <div class="warning-validator" *ngIf="fgv.intereses.errors && (fgv.intereses.dirty || fgv.intereses.touched)">
                 <strong *ngIf="fgv.intereses.errors.required">
-                    Este campo es requerido.
+                    *Requerido
                 </strong>
-                <strong *ngIf="fgv.intereses.errors.minlength">
-                    Este campo debería tener almenos {{interesesMinLength}} caracteres.
+                <strong *ngIf="fgv.genero.intereses.minlength">
+                    *Minimo {{generoMaxLength}} caracteres de longitud
                 </strong>
             </div>
             </div>
@@ -170,7 +179,7 @@
             </div>
             -->
             <div class="input-field col    s6">
-            <button (click)="UsuarioRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Registrarse
+            <button (click)="UsuarioRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="button" name="action">Registrarse
                 <i class="material-icons right">done</i>
             </button>
             </div>
