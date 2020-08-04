@@ -118,24 +118,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col    s2">
-            <i class="material-icons prefix">wc</i>
-            <input id="genero" formControlName="genero" type="text" >
-            <label for="genero">Genero</label>
-            <div class="warning-validator" *ngIf="fgv.genero.errors && (fgv.genero.dirty || fgv.genero.touched)">
-                <strong *ngIf="fgv.genero.errors.required">
-                    *Requerido
-                </strong>
-                <strong *ngIf="fgv.genero.errors.minlength">
-                    *Solo {{generoLength}} caracter (F/M)
-                </strong>
-                <strong *ngIf="fgv.genero.errors.maxlength">
-                    *Solo {{generoLength}} caracter (F/M)
-                </strong>
-            </div>
-            </div>
-            <div class="input-field col   s2">
-            <input id="fecha_nacimiento" formControlName="fecha_nacimiento" type="date" >
+            <div class="input-field col   s3">
+            <i class="material-icons prefix">date_range</i>
+            <input id="fecha_nacimiento" formControlName="fecha_nacimiento" type="text" >
             <label for="fecha_nacimiento">Fecha Nacimiento</label>
             <div class="warning-validator" *ngIf="fgv.fecha_nacimiento.errors && (fgv.fecha_nacimiento.dirty || fgv.fecha_nacimiento.touched)">
                 <strong *ngIf="fgv.fecha_nacimiento.errors.required">
@@ -143,15 +128,23 @@
                 </strong>
             </div>
             </div>
-            <div class="input-field col s8">
+            <!--<i class="material-icons prefix">wc</i>-->
+            <div class="input-field col s2">
+                <select>
+                <option value="" disabled selected>Seleccione</option>
+                <option value="F">Femenino</option>
+                <option value="M">Masculino</option>
+                </select>
+                <label>Genero</label>
+            </div>            
+            <div class="input-field col s7">
             <i class="material-icons prefix">insert_emoticon</i>
             <input id="intereses" formControlName="intereses" type="text" >
             <label for="intereses">Intereses</label>
             <div class="warning-validator" *ngIf="fgv.intereses.errors && (fgv.intereses.dirty || fgv.intereses.touched)">
                 <strong *ngIf="fgv.intereses.errors.required">
                     *Requerido
-                </strong>
-                <strong *ngIf="fgv.intereses.errors.minlength">
+                </strong><strong *ngIf="fgv.intereses.errors.minlength">
                     *Minimo {{interesesMinLength}} de longitud
                 </strong>
             </div>
@@ -166,18 +159,6 @@
             </div>
         </div>-->
         <div class="row">
-            <!--
-            <div class="input-field col    s6">
-            <div class="gender-male">
-                <input class="with-gap" name="gender" type="radio" id="male" required />
-                <label for="male">Male</label>
-            </div>
-            <div class="gender-female">
-                <input class="with-gap" name="gender" type="radio" id="female" required />
-                <label for="female">Female</label>
-            </div>
-            </div>
-            -->
             <div class="input-field col    s6">
             <button (click)="UsuarioRegisterFn()" class="btn btn-large btn-register waves-effect waves-light" type="button" name="action">Registrarse
                 <i class="material-icons right">done</i>
