@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormsConfig } from '../../../config/forms-config';
+import { UsuarioService } from '../../../services/usuario.service';
+import { UsuarioModel } from 'src/app/models/usuario.model';
 
 declare const showMessage:any;
+declare const initSelect:any;
 
 @Component({
   selector: 'app-registro',
@@ -18,10 +21,11 @@ export class RegistroComponent implements OnInit {
   interesesMinLength = FormsConfig.INTERESES_MIN_LENGTH;
   generoLength = FormsConfig.GENERO_MAX_LENGTH;
   
-  constructor(private fb:FormBuilder ) { } 
+  constructor(private fb:FormBuilder, private service: UsuarioService ) { } 
 
   ngOnInit(): void {
     this.FormBuilding();
+    initSelect();
   }
 
   FormBuilding(){
@@ -35,8 +39,9 @@ export class RegistroComponent implements OnInit {
       pais:['',[Validators.required,Validators.minLength(this.placesMinLength)]],
       ciudad:['',[Validators.required,Validators.minLength(this.placesMinLength)]],
       fecha_nacimiento:['',[Validators.required]],
-      genero:['',[Validators.minLength(this.generoLength),Validators.maxLength(this.generoLength)]],
-      intereses:['',[Validators.required,Validators.minLength(this.interesesMinLength)]]
+      genero:[''],
+      intereses:['',[Validators.required,Validators.minLength(this.interesesMinLength)]],
+      mensajesId:['']
     });
   }
 
@@ -44,8 +49,33 @@ export class RegistroComponent implements OnInit {
     if(this.fgValidator.invalid){
       showMessage("Formulario invalido");
     }else{
-      showMessage("Registrando...");
+      console.log("Registrando...");
+      let model=this.getUsuarioData();
+      this.service.UsuarioRegistering(model).subscribe(
+        data => {
+          showMessage("Registro exitoso, puede encontrar su contraseña en su bandeja de entrada");
+        },error => {
+          showMessage("Error en el registro");
+        }
+      );
     }  
+  }
+
+  getUsuarioData(): UsuarioModel {
+    let model = new UsuarioModel();
+    model.primer_nombre=this.fgv.primer_nombre.value;
+    model.segundo_nombre=this.fgv.segundo_nombre.value;
+    model.primer_apellido=this.fgv.primer_apellido.value;
+    model.segundo_apellido=this.fgv.segundo_apellido.value;
+    model.celular=this.fgv.celular.value;
+    model.email=this.fgv.email.value;
+    model.pais=this.fgv.pais.value;
+    model.ciudad=this.fgv.ciudad.value;
+    model.fecha_nacimiento=this.fgv.fecha_nacimiento.value;
+    model.genero=this.fgv.genero.value;
+    model.intereses=this.fgv.intereses.value;
+    model.mensajesId='';
+    return model;
   }
 
   get fgv(){
