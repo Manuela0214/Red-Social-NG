@@ -1,36 +1,51 @@
 <div id="login-page" class="row">
-    <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
-        <div class="row">
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">mail_outline</i>
-            <input class="validate" id="email" type="email">
-            <label for="email" data-error="wrong" data-success="right">Email</label>
+  <div class="col s12 z-depth-6 card-panel">
+    <form [formGroup]="fgValidator" class="login-form">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mail_outline</i>
+          <input formControlName="nombre_usuario" class="validate" id="nombre_usuario" type="text">
+          <label for="nombre_usuario" data-error="wrong" data-success="right">Username</label>
+          <div class="warning-validator" *ngIf="fgv.nombre_usuario.errors && (fgv.nombre_usuario.dirty || fgv.nombre_usuario.touched)">
+            <strong *ngIf="fgv.nombre_usuario.errors.required">
+              *Requerido
+            </strong>
+            <strong *ngIf="fgv.nombre_usuario.errors.email">
+              Formato invalido de email
+            </strong>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">lock_outline</i>
-            <input id="password" type="password">
-            <label for="password">Password</label>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_outline</i>
+          <input formControlName="contrasena" id="contrasena" type="password">
+          <label for="contrasena">Password</label>
+          <div class="warning-validator" *ngIf="fgv.contrasena.errors && (fgv.contrasena.dirty || fgv.contrasena.touched)">
+            <strong>
+              *Requerido
+            </strong>
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <a href="#" class="btn waves-effect waves-light col s12">Login</a>
-          </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <button (click)="LoginUsuarioFn()" class="btn waves-effect waves-light" type="button" name="action">Login
+            <i class="material-icons right">send</i>
+          </button>
         </div>
-        <div class="row">
-          <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a routerLink="/usuario/register">Register Now!</a></p>
-          </div>
-          <div class="input-field col s6 m6 l6">
-              <p class="margin right-align medium-small"><a routerLink="/security/reset">Forgot password?</a></p>
-          </div>          
+      </div>
+      <div class="row">
+        <div class="input-field col s6 m6 l6">
+          <p class="margin medium-small"><a routerLink="/customer/register">Register Now!</a></p>
         </div>
+        <div class="input-field col s6 m6 l6">
+          <p class="margin right-align medium-small"><a routerLink="/security/reset">Forgot password?</a></p>
+        </div>
+      </div>
 
-      </form>
-    </div>
+    </form>
+  </div>
 </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FormsConfig } from '../../../config/forms-config';
 import { UsuarioService } from '../../../services/usuario.service';
 import { UsuarioModel } from 'src/app/models/usuario.model';
+import { Router } from '@angular/router';
 
 declare const showMessage:any;
 declare const initSelect:any;
@@ -21,7 +22,9 @@ export class RegistroComponent implements OnInit {
   interesesMinLength = FormsConfig.INTERESES_MIN_LENGTH;
   generoLength = FormsConfig.GENERO_MAX_LENGTH;
   
-  constructor(private fb:FormBuilder, private service: UsuarioService ) { } 
+  constructor(private fb:FormBuilder,
+    private service: UsuarioService,
+    private router: Router ) { } 
 
   ngOnInit(): void {
     this.FormBuilding();
@@ -54,6 +57,7 @@ export class RegistroComponent implements OnInit {
       this.service.UsuarioRegistering(model).subscribe(
         data => {
           showMessage("Registro exitoso, puede encontrar su contraseña en su bandeja de entrada");
+          this.router.navigate(['/security/login']);
         },error => {
           showMessage("Error en el registro");
         }
