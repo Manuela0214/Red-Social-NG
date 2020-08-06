@@ -3,3 +3,7 @@
 h2{
     color:red;
 }
+
+.warning-validator strong{
+  color: red;
+}
