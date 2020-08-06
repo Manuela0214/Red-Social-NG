@@ -2,9 +2,11 @@
   <div class="nav-wrapper cyan">
     <a href="#" class="brand-logo">Gamers</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLink="/security/login">Iniciar sesión</a></li>
-      <li><a routerLink="/usuario/register">Registro</a></li>
-      <li><a routerLink="/general/about-us">Acerca de nosotros</a></li>
+      <li *ngIf="!isLogged"><a routerLink="/security/login">Iniciar sesión</a></li>
+      <li *ngIf="isLogged"><a routerLink="/security/logout">Cerrar sesion</a></li>
+      <li *ngIf="isLogged"><a routerLink="/security/change-password">Cambiar contraseña</a></li>
+      <li *ngIf="!isLogged"><a routerLink="/usuario/register">Registro</a></li>
+      <!--<li><a routerLink="/general/about-us">Acerca de nosotros</a></li>-->
     </ul>
   </div>
 </nav>  

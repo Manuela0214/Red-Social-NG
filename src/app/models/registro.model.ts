@@ -4,4 +4,6 @@ export class RegistroModel{
     nombre_usuario:String;
     contrasena?:String;
     usuarioId?:String;
+    token?: String;
+    isLogged: Boolean = false;
 }
