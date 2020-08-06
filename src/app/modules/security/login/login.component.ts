@@ -39,19 +39,19 @@ export class LoginComponent implements OnInit {
    */
   LoginUsuarioFn() {
     if (this.fgValidator.invalid) {
-      showMessage("Invalid form.");
+      showMessage("El formulario ingresado es invalido");
     } else {
       //showMessage("Registering...");
       let model = this.getLoginData();
       console.log(model);
       this.service.UsuarioLogin(model).subscribe(
         data => {
-          //this.service.saveSessionData(data);
-          showMessage("Welcome to your account.");
+          this.service.saveSessionData(data);
+          showMessage("Bienvenido a su cuenta");
           this.router.navigate(['/home']);
         },
         error => {
-          showMessage("Invalid data.");
+          showMessage("Usuaro o contraseña invalida");
         }
       );
     }

@@ -6,14 +6,14 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">mail_outline</i>
-          <input formControlName="nombre_usuario" class="validate" id="nombre_usuario" type="text">
-          <label for="nombre_usuario" data-error="wrong" data-success="right">Username</label>
+          <input formControlName="nombre_usuario" class="validate" id="nombre_usuario" type="email">
+          <label for="nombre_usuario" data-error="wrong" data-success="right">Email</label>
           <div class="warning-validator" *ngIf="fgv.nombre_usuario.errors && (fgv.nombre_usuario.dirty || fgv.nombre_usuario.touched)">
             <strong *ngIf="fgv.nombre_usuario.errors.required">
               *Requerido
             </strong>
             <strong *ngIf="fgv.nombre_usuario.errors.email">
-              Formato invalido de email
+              Formato incorrecto de email
             </strong>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">lock_outline</i>
           <input formControlName="contrasena" id="contrasena" type="password">
-          <label for="contrasena">Password</label>
+          <label for="contrasena">Contraseña</label>
           <div class="warning-validator" *ngIf="fgv.contrasena.errors && (fgv.contrasena.dirty || fgv.contrasena.touched)">
             <strong>
               *Requerido
@@ -31,18 +31,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
-          <button (click)="LoginUsuarioFn()" class="btn waves-effect waves-light" type="button" name="action">Login
+        <div class="input-field col s12" text-align: center>
+          <button (click)="LoginUsuarioFn()" class="btn waves-effect waves-light" type="button" name="action">Iniciar sesion
             <i class="material-icons right">send</i>
           </button>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a routerLink="/customer/register">Register Now!</a></p>
+          <p class="margin medium-small"><a routerLink="/usuario/register">Registrese ahora!</a></p>
         </div>
         <div class="input-field col s6 m6 l6">
-          <p class="margin right-align medium-small"><a routerLink="/security/reset">Forgot password?</a></p>
+          <p class="margin right-align medium-small"><a routerLink="/security/reset">Olvido su contraseña?</a></p>
         </div>
       </div>
 
