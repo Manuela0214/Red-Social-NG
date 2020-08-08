@@ -10,7 +10,7 @@ import { SecurityService } from 'src/app/services/security.service';
 export class NavbarComponent implements OnInit {
 
   isLogged: Boolean = false;
-  rol: number = 1;
+  rol: number = 0;
   subscription: Subscription;
 
   constructor(private service: SecurityService) { }
