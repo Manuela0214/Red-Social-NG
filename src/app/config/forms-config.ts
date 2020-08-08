@@ -4,4 +4,6 @@ export namespace FormsConfig{
     export const CELPHONE_MIN_LENGTH = 12;
     export const INTERESES_MIN_LENGTH = 4;
     export const GENERO_MAX_LENGTH = 1;
+    export const ITEMS_PER_PAGE = 5;
+
 }

@@ -28,7 +28,7 @@ const routes: Routes = [
     component: CategoriaCreationComponent
   },
   {
-    path:'categoria-edition',
+    path:'categoria-edition/:id',
     component: CategoriaEditionComponent
   },
   {

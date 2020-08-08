@@ -1,1 +1,56 @@
-<p>categoria-list works!</p>
+
+ <a  routerLink = "/parameters/categoria-creation" class="waves-effect waves-light btn"><i class="material-icons left">add</i>New  record</a>
+ <br/>
+ <br />
+<table class="highlight responsive-table">
+    <thead>
+        <tr>
+            <td>
+                code
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Edit
+            </td>
+            <td>
+                Remove
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: itemsPageAmount, currentPage: page } ">
+            <td>
+                {{r.codigo}}
+            </td>
+            <td>
+                {{r.nombre}}
+            </td>
+            <td>
+                
+        <a  routerLink = "/parameters/categoria-edition/{{r.id}}"  routerLinkActive="router-link-active" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Editar</a>
+            </td>
+            <td>
+                <button (click) = "RemoveConfirmation(r.id)" class="btn  red waves-effect waves-light" type="button" name="action">Borrar
+                    <i class="material-icons right">delete</i>
+                  </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
+<ngx-spinner></ngx-spinner>
+
+  <!-- Modal Structure -->
+  <div id="removeConfirmationModal" class="modal">
+    <div class="modal-content">
+      <h4>Eliminar Confirmation </h4>
+      <p > ¿Estás seguro de borrar esta categoria?</p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Confirmar</a>
+      
+      <a class="modal-close red waves-effect waves-green btn-flat">cerar</a>
+    </div>
+  </div>
