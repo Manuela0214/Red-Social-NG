@@ -1,5 +1,7 @@
 export namespace FormsConfig{
     export const NAMES_MIN_LENGTH = 3;
+    export const PARAM_NOMBRE_MIN_LENGTH = 3;
+    export const PARAM_CODIGO_MIN_LENGTH = 1;
     export const PLACE_MIN_LENGTH = 3;
     export const CELPHONE_MIN_LENGTH = 12;
     export const INTERESES_MIN_LENGTH = 4;

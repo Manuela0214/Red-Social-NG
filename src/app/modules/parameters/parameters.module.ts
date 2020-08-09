@@ -9,7 +9,7 @@ import { VideojuegoRemoveComponent } from './videojuego/videojuego-remove/videoj
 import { CategoriaCreationComponent } from './categoria/categoria-creation/categoria-creation.component';
 import { CategoriaEditionComponent } from './categoria/categoria-edition/categoria-edition.component';
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
-import { CategoriaRemoveComponent } from './categoria/categoria-remove/categoria-remove.component';
+
 import { ConsolaCreationComponent } from './consola/consola-creation/consola-creation.component';
 import { ConsolaEditionComponent } from './consola/consola-edition/consola-edition.component';
 import { ConsolaListComponent } from './consola/consola-list/consola-list.component';
@@ -20,17 +20,21 @@ import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component'
 import { OfertaRemoveComponent } from './oferta/oferta-remove/oferta-remove.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent, CategoriaRemoveComponent, ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent],
+  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent,  ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent],
   imports: [
     CommonModule,
     ParametersRoutingModule,
     NgxPaginationModule,
     NgxSpinnerModule,
-    FormsModule,
-    ReactiveFormsModule
+
+    ReactiveFormsModule,
+    FormsModule
+
   ]
 })
 export class ParametersModule { }

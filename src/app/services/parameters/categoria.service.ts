@@ -21,23 +21,30 @@ token :String =''
     return this.http.get<CategoriaModel[]>(`${ServiceConfig.BASE_URL}${this.entity}`);
   }
 
+  getRecordById(id:String):Observable<CategoriaModel>{
+    return this.http.get<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}`);
+  }
+
 
   /**
    * Add new record to category collection
    * @param record record data
    */
   saveNewRecord(record: CategoriaModel):Observable<CategoriaModel>{
+    
     return this.http.post<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization' : `Bearer  ${this.token}`
+
+        'Content-Type':'application/json',
+        'Authorization' : `Bearer  ${this.token} `
+
 
       })
     });
   }
 
   EditRecord(record: CategoriaModel):Observable<CategoriaModel>{
-    return this.http.put<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
+    return this.http.put<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}/${record.id}`, record, {
       headers: new HttpHeaders({
         Authorization : `Bearer  ${this.token} `
 
