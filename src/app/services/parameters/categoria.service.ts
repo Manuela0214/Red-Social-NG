@@ -9,7 +9,7 @@ import { SecurityService } from '../security.service';
   providedIn: 'root'
 })
 export class CategoriaService {
-entity='categoria';
+entity='';
 token :String =''
 
   constructor(private http: HttpClient, private securityService:SecurityService) {
@@ -29,7 +29,8 @@ token :String =''
   saveNewRecord(record: CategoriaModel):Observable<CategoriaModel>{
     return this.http.post<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
       headers: new HttpHeaders({
-        Authorization : `Bearer  ${this.token} `
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer  ${this.token}`
 
       })
     });

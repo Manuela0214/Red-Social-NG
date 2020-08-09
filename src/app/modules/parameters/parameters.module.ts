@@ -20,6 +20,7 @@ import { OfertaListComponent } from './oferta/oferta-list/oferta-list.component'
 import { OfertaRemoveComponent } from './oferta/oferta-remove/oferta-remove.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent, CategoriaRemoveComponent, ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent],
@@ -27,7 +28,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     CommonModule,
     ParametersRoutingModule,
     NgxPaginationModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametersModule { }

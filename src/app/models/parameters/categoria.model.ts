@@ -1,5 +1,5 @@
 export class CategoriaModel{
-    ii?:String;
+    id?:String;
     codigo:String;
     nombre:String;
 }
