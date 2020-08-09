@@ -9,7 +9,7 @@ import { SecurityService } from '../security.service';
   providedIn: 'root'
 })
 export class CategoriaService {
-entity='categoria';
+entity='';
 token :String =''
 
   constructor(private http: HttpClient, private securityService:SecurityService) {
@@ -34,7 +34,10 @@ token :String =''
     
     return this.http.post<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
       headers: new HttpHeaders({
+
         'Authorization' : `Bearer ${this.token}`
+
+
 
       })
     });
