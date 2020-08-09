@@ -13,3 +13,10 @@ function showRemoveConfirmationWindow(message) {
   let instance = M.Modal.init(elem, {});
   instance.open();
 }
+
+function closeModal(modalId){
+  let elem = document.querySelector('#'+ modalId);
+  let instance = M.Modal.init(elem, {});
+  instance.close();
+
+}

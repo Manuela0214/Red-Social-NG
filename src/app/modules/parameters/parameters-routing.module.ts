@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import{ CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
 import{ CategoriaCreationComponent } from './categoria/categoria-creation/categoria-creation.component';
 import{ CategoriaEditionComponent } from './categoria/categoria-edition/categoria-edition.component';
-import{ CategoriaRemoveComponent } from './categoria/categoria-remove/categoria-remove.component';
+
 import { ConsolaCreationComponent} from './consola/consola-creation/consola-creation.component';
 import { ConsolaEditionComponent} from './consola/consola-edition/consola-edition.component';
 import { ConsolaListComponent} from './consola/consola-list/consola-list.component';
@@ -31,10 +31,7 @@ const routes: Routes = [
     path:'categoria-edition/:id',
     component: CategoriaEditionComponent
   },
-  {
-    path:'categoria-remove',
-    component: CategoriaRemoveComponent
-  },
+  
   {
     path:'consola-list',
     component: ConsolaListComponent

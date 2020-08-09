@@ -31,7 +31,7 @@ export class RegistroComponent implements OnInit {
     initSelect();
   }
 
-  FormBuilding(){
+  FormBuilding(){  
     this.fgValidator = this.fb.group({
       primer_nombre:['',[Validators.required,Validators.minLength(this.namesMinLength)]],
       segundo_nombre:['',[Validators.minLength(this.namesMinLength)]],
