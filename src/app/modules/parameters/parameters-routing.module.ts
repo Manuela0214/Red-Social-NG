@@ -41,7 +41,7 @@ const routes: Routes = [
     component: ConsolaCreationComponent
   },
   {
-    path:'consola-edition',
+    path:'consola-edition/:id',
     component: ConsolaEditionComponent
   },
   {
@@ -73,7 +73,7 @@ const routes: Routes = [
     component: VideojuegoCreationComponent
   },
   {
-    path:'videojuego-edition',
+    path:'videojuego-edition/:id',
     component: VideojuegoEditionComponent
   },
   {

@@ -35,8 +35,8 @@ token :String =''
     return this.http.post<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}`, record, {
       headers: new HttpHeaders({
 
-        'Content-Type':'application/json',
-        'Authorization' : `Bearer  ${this.token} `
+        'Authorization' : `Bearer ${this.token}`
+
 
 
       })
@@ -46,7 +46,7 @@ token :String =''
   EditRecord(record: CategoriaModel):Observable<CategoriaModel>{
     return this.http.put<CategoriaModel>(`${ServiceConfig.BASE_URL}${this.entity}/${record.id}`, record, {
       headers: new HttpHeaders({
-        Authorization : `Bearer  ${this.token} `
+        Authorization : `Bearer ${this.token}`
 
       })
     });
@@ -55,7 +55,7 @@ token :String =''
   DeleteRecord(recordId: String):Observable<any>{
     return this.http.delete(`${ServiceConfig.BASE_URL}${this.entity}/${recordId}`, {
       headers: new HttpHeaders({
-        Authorization : `Bearer  ${this.token} `
+        Authorization : `Bearer ${this.token}`
 
       })
     });
