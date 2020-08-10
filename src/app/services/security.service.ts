@@ -80,6 +80,25 @@ export class SecurityService {
     return currentSession;
   }
 
+  sessionExist():Boolean{
+    
+    let currentSession = this.getSessionData();
+    return (currentSession) ? true:false;
+  }
+/**
+ * verifica si el rol del usuaruio en sesion tiene el rol de parametros
+ * @param rolId rol para verificar 
+ */
+  VerifytRolInSession(rolId):Boolean{
+    let currentSession = JSON.parse(this.getSessionData());
+    return (currentSession.rol == rolId);
+  }
+
+
+
+
+
+
   getToken():String{
     let currentSession = JSON.parse(this.getSessionData());
     return currentSession.token;
