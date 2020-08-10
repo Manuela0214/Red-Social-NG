@@ -9,4 +9,6 @@ export namespace FormsConfig{
     export const ITEMS_PER_PAGE = 5;
     export const PARAM_NAME_MIN_LENGTH = 3;
     export const PARAM_CODE_MIN_LENGTH = 1;
+    export const DESCRIPCION_OFERTA_MIN_LENGTH = 4;
+    export const ENLACE_TIENDA_MIN_LENGTH = 3;
 }

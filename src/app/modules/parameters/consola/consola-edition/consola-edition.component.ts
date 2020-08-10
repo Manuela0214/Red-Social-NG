@@ -80,7 +80,7 @@ export class ConsolaEditionComponent implements OnInit {
       let model=this.getConsolaData();
       this.service.EditRecord(model).subscribe(
         data => {
-          showMessage(" A VER SI SE ** modifica ESTO");
+          showMessage("Dato modificado exitosamente");
           this.router.navigate(['/parameters/consola-list']);
         },
         error => {

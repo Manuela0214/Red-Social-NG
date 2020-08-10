@@ -1,1 +1,34 @@
-<p>oferta-edition works!</p>
+
+<fieldset>
+    <legend align= "center">Editar Oferta</legend>
+<div class="row">
+    <form class="col s12" [formGroup] = "fgValidator">
+        <input type="hidden" formControlName="id" /> 
+             <div class="row">
+        <div class="input-field col s3 ">
+          <input  id="videojuegoId" formControlName="videojuegoId"  type="text" class="validate">
+          <label  class= "active"for="videojuegoId"> Id videojuego</label>
+        </div>
+        <div class="input-field col s9">
+          <input id="enlaceTienda" formControlName="enlaceTienda" type="text" class="validate">
+          <label class= "active"  for="enlaceTienda">Enlace tienda</label>
+        </div>
+        <div class="input-field col s9">
+          <input id="descripcion" formControlName="descripcion" type="text" class="validate">
+          <label class= "active"  for="descripcion">Descripcion</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+            
+  <button class="btn waves-effect waves-light" type="button" (click)="EditRecordFn()" name="action">Enviar
+    <i class="material-icons right">send</i>
+  </button>
+  &nbsp;&nbsp;
+            <a routerLink="/parameters/oferta-list"  class="waves-effect red waves-light btn"><i class="material-icons right">cancel</i>Cancelar</a>
+            </div>
+      </div>
+    </form>
+  </div>
+</fieldset>

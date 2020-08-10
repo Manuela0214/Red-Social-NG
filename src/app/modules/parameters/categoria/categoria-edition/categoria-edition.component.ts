@@ -81,7 +81,7 @@ export class CategoriaEditionComponent implements OnInit {
       let model=this.getCategoriaData();
       this.service.EditRecord(model).subscribe(
         data => {
-          showMessage(" A VER SI SE ** modifica ESTO");
+          showMessage("Dato modificado exitosamente");
           this.router.navigate(['/parameters/categoria-list']);
         },
         error => {

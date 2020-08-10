@@ -10,7 +10,6 @@ import { CategoriaModel } from 'src/app/models/parameters/categoria.model';
 declare const showMessage : any;
 
 
-declare const showMessage: any;
 @Component({
   selector: 'app-categoria-creation',
   templateUrl: './categoria-creation.component.html',
@@ -47,11 +46,11 @@ export class CategoriaCreationComponent implements OnInit {
       let model=this.getCategoriaData();
       this.service.saveNewRecord(model).subscribe(
         data => {
-          showMessage(" A VER SI SE ** INSERTA ESTO");
+          showMessage("Dato insertado exitosamente");
           this.router.navigate(['/parameters/categoria-list']);
         },
         error => {
-          showMessage("Error a la crearcion de la categoria");
+          showMessage("Error a la creacion de la categoria");
           console.log(`${model.codigo} no se pudo crear`);
           
         }
@@ -59,44 +58,10 @@ export class CategoriaCreationComponent implements OnInit {
     }  
   }
 
-  getCategoriaData(): CategoriaModel {
-    let model = new CategoriaModel();
-    model.codigo=this.fgv.codigo.value;
-    model.nombre=this.fgv.nombre.value;
-    return model;
-  }
-
-  get fgv(){
-    return this.fgValidator.controls;
-  }
+  
   
 
-  FormBuilding(){
-    this.fgValidator = this.fb.group({
-      codigo:['',[Validators.required,Validators.minLength(this.codeMinLength)]],
-      nombre:['',[Validators.required,Validators.minLength(this.nameMinLength)]],
-    });
-  }
-
-  saveNewRecordFn(){
-    if(this.fgValidator.invalid){
-      showMessage("Formulario invalido.");
-    }else{
-      let model=this.getUsuarioData();
-      console.log(model);
-      this.service.saveNewRecord(model).subscribe(
-        data => {
-          showMessage("Registro almacenado correctamente.");
-          this.router.navigate(['/parameters/categoria-list']);
-        },error => {
-          console.log(error);
-          showMessage("Error guardando.");
-        }
-      );
-    }  
-  }
-
-  getUsuarioData(): CategoriaModel {
+  getCategoriaData(): CategoriaModel {
     let model = new CategoriaModel();
     model.codigo=this.fgv.codigo.value;
     model.nombre=this.fgv.nombre.value;

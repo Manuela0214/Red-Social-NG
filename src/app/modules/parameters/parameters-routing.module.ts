@@ -57,7 +57,7 @@ const routes: Routes = [
     component: OfertaCreationComponent
   },
   {
-    path:'oferta-edition',
+    path:'oferta-edition/:id',
     component: OfertaEditionComponent
   },
   {

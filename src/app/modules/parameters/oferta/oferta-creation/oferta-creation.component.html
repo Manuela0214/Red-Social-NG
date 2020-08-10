@@ -1,1 +1,35 @@
-<p>oferta-creation works!</p>
+
+<fieldset>
+    <legend align= "center">Crear nueva oferta</legend>
+<div class="row">
+    <form class="col s12" [formGroup] = "fgValidator">
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="videojuegoId" formControlName="videojuegoId" type="text" class="validate">
+          <label for="videojuegoId">Id videojuego</label>
+        </div>
+        <div class="input-field col s8">
+          <input id="enlaceTienda" formControlName="enlaceTienda" type="text" class="validate">
+          <label for="enlaceTienda">Enlace tienda</label>
+        </div>
+        <div class="input-field col s12">
+          <input  id="descripcion" formControlName="descripcion"  type="text" class="validate">
+          <label for="descripcion"> Descripcion</label>
+        </div>
+        
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+            
+  <button class="btn waves-effect waves-light" type="button" (click)="saveNewRecordFn()" name="action">Enviar
+    <i class="material-icons right">send</i>
+  </button>
+  &nbsp;&nbsp;
+            <a routerLink="/parameters/oferta-list"  class="waves-effect red waves-light btn"><i class="material-icons right">cancel</i>Cancelar</a>
+            </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+

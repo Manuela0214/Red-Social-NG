@@ -44,7 +44,7 @@ export class ConsolaCreationComponent implements OnInit {
       let model=this.getConsolaData();
       this.service.saveNewRecord(model).subscribe(
         data => {
-          showMessage(" A VER SI SE ** INSERTA ESTO");
+          showMessage("Dato insertado exitosamente");
           this.router.navigate(['/parameters/consola-list']);
         },
         error => {
