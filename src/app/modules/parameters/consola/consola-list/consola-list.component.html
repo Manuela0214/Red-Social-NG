@@ -1,21 +1,21 @@
 
- <a  routerLink = "/parameters/consola-creation" class="waves-effect waves-light btn"><i class="material-icons left">add</i>New  record</a>
+ <a  routerLink = "/parameters/consola-creation" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Añadir</a>
  <br/>
  <br />
 <table class="highlight responsive-table">
     <thead>
         <tr>
             <td>
-                code
+                Codigo
             </td>
             <td>
-                Name
+                Nombre
             </td>
             <td>
-                Edit
+                Editar
             </td>
             <td>
-                Remove
+                Eliminar
             </td>
         </tr>
     </thead>
@@ -32,7 +32,7 @@
         <a  routerLink = "/parameters/consola-edition/{{r.id}}"  routerLinkActive="router-link-active" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Editar</a>
             </td>
             <td>
-                <button (click) = "RemoveConfirmation(r.id)" class="btn  red waves-effect waves-light" type="button" name="action">Borrar
+                <button (click) = "RemoveConfirmation(r.id)" class="btn  red waves-effect waves-light" type="button" name="action">Eliminar
                     <i class="material-icons right">delete</i>
                   </button>
             </td>
@@ -53,6 +53,6 @@
             <i class="material-icons right">delete</i>
           </button>
       
-      <a class="modal-close  waves-effect waves-green btn-flat">cerar</a>
+      <a class="modal-close  waves-effect waves-green btn-flat">Cerrar</a>
     </div>
   </div>
