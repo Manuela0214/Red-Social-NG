@@ -11,7 +11,7 @@ declare const showMessage : any;
 
 @Component({
   selector: 'app-videojuego-creation',
-  templateUrl: './videojuego-creation.component.html',
+  templateUrl: './videojuego-creation.component.html',  
   styleUrls: ['./videojuego-creation.component.css']
 })
 export class VideojuegoCreationComponent implements OnInit {
