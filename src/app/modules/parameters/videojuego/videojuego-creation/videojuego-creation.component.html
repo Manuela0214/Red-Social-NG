@@ -1,1 +1,28 @@
-<p>videojuego-creation works!</p>
+<fieldset>
+    <legend align= "center">Crear nuevo videojuego</legend>
+<div class="row">
+    <form class="col s12" [formGroup] = "fgValidator">
+      <div class="row">
+        <div class="input-field col s3">
+          <input  id="nombre" formControlName="nombre"  type="text" class="validate">
+          <label for="nombre"> Nombre juego</label>
+        </div>
+        <div class="input-field col s9">
+          <input id="categoriaId" formControlName="categoriaId" type="text" class="validate">
+          <label for="categoriaId">id Categoría</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+            
+  <button class="btn waves-effect waves-light" type="button" (click)="saveNewRecordFn()" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  &nbsp;&nbsp;
+            <a routerLink="/parameters/videojuego-list"  class="waves-effect red waves-light btn"><i class="material-icons right">cancel</i>Cancelar</a>
+            </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
