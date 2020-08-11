@@ -1,4 +1,5 @@
 export class PasswordResetModel {
-    nombre_usuario: string;
+    nombre_usuario: String;
     type: number;
+    
 }
