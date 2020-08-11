@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegistroModel } from '../models/registro.model';
 import { ServiceConfig } from '../config/service-config';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { PasswordResetModel } from '../models/security/password-reset.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +49,11 @@ export class SecurityService {
       headers: new HttpHeaders({})
     });
   }
-
+  PasswordReset(data: PasswordResetModel): Observable<any> {
+    return this.http.post<any>(`${ServiceConfig.BASE_URL}password-reset`, data, {
+      headers: new HttpHeaders({})
+    });
+  }
   /**
    * save session data
    * @param sessionData user data and token
