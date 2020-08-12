@@ -5,10 +5,12 @@
     <form class="col s12" [formGroup] = "fgValidator">
         <input type="hidden" formControlName="id" /> 
              <div class="row">
-        <div class="input-field col s3 ">
-          <input  id="categoriaId" formControlName="categoriaId"  type="text" class="validate">
-          <label  class= "active"for="categoriaId"> categoriaId</label>
-        </div>
+              <div class="input-field col s9">
+                <select class="browser-default" formControlName="categoriaId">
+                  <option *ngFor="let category of categoriaList" value="{{category.id}}">{{category.nombre}}</option>
+              </select>
+                <label class="active">categoria</label>
+              </div>
         <div class="input-field col s9">
           <input id="nombre" formControlName="nombre" type="text" class="validate">
           <label class= "active"  for="nombre">Nombre videojuego</label>
@@ -22,7 +24,7 @@
     <i class="material-icons right">send</i>
   </button>
   &nbsp;&nbsp;
-            <a routerLink="/parameters/categoria-list"  class="waves-effect red waves-light btn"><i class="material-icons right">cancel</i>Cancelar</a>
+            <a routerLink="/parameters/videojuego-list"  class="waves-effect red waves-light btn"><i class="material-icons right">cancel</i>Cancelar</a>
             </div>
       </div>
     </form>

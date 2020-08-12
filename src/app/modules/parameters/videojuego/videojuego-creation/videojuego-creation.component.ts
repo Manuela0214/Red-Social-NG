@@ -4,9 +4,13 @@ import { FormsConfig } from 'src/app/config/forms-config';
 import { VideojuegoService } from 'src/app/services/parameters/videojuego.service';
 import { Router } from '@angular/router';
 import { VideojuegoModel } from 'src/app/models/parameters/videojuego.model';
+import { CategoriaService } from 'src/app/services/parameters/categoria.service';
+import { CategoriaModel } from 'src/app/models/parameters/categoria.model';
 
 
 declare const showMessage : any;
+declare const initSelect:any;
+
 
 
 @Component({
@@ -20,19 +24,22 @@ export class VideojuegoCreationComponent implements OnInit {
 
   nombreMinLength = FormsConfig.PARAM_NOMBRE_MIN_LENGTH;
   codigoMinLength = FormsConfig.PARAM_CODIGO_MIN_LENGTH;
+  categoriaList : CategoriaModel[];
 
   constructor(private fb:FormBuilder,
     private service: VideojuegoService,
-    private router: Router ) { } 
+    private router: Router,
+    private categoriaService: CategoriaService ) { } 
 
   ngOnInit(): void {
+    this.fillSelect();
     this.FormBuilding();
   }
 
-  FormBuilding(){  
+  FormBuilding(){
     this.fgValidator = this.fb.group({
       nombre:['',[Validators.required,Validators.minLength(this.nombreMinLength)]],
-      categoriaId:['',[Validators.minLength(this.codigoMinLength)]]
+      categoriaId:['',[Validators.required,Validators.minLength(this.codigoMinLength)]],
      
     });
   }
@@ -46,10 +53,10 @@ export class VideojuegoCreationComponent implements OnInit {
       this.service.saveNewRecord(model).subscribe(
         data => {
           showMessage("Dato insertado exitosamente");
-          this.router.navigate(['/parameters/categoria-list']);
+          this.router.navigate(['/parameters/videojuego-list']);
         },
         error => {
-          showMessage("Error a la creacion de la categoria");
+          showMessage("Error a la creacion de la videojuego");
           console.log(`${model.categoriaId} no se pudo crear`);
           
         }
@@ -65,6 +72,21 @@ export class VideojuegoCreationComponent implements OnInit {
     model.categoriaId=this.fgv.categoriaId.value;
     model.nombre=this.fgv.nombre.value;
     return model;
+  }
+
+  /**
+   * carga las categorias que haya
+   */
+  fillSelect(){
+   this.categoriaService.getAllRecords().subscribe(
+     data=>{
+      this.categoriaList=data; 
+      initSelect();
+
+     },error=>{
+      console.error("eror carga de categorias")
+     }
+   );
   }
 
   get fgv(){

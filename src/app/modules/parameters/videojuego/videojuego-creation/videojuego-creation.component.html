@@ -8,8 +8,10 @@
           <label for="nombre"> Nombre juego</label>
         </div>
         <div class="input-field col s9">
-          <input id="categoriaId" formControlName="categoriaId" type="text" class="validate">
-          <label for="categoriaId">id Categoría</label>
+          <select class="browser-default" formControlName="categoriaId">
+            <option *ngFor="let category of categoriaList" value="{{category.id}}">{{category.nombre}}</option>
+        </select>
+          <label class="active">categoria</label>
         </div>
       </div>
       

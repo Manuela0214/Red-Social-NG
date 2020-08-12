@@ -22,10 +22,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { VideojuegoListHomeComponent } from './videojuego/videojuego-list-home/videojuego-list-home.component';
+import { VideojuegoListDetailsComponent } from './videojuego/videojuego-list-details/videojuego-list-details.component';
 
 
 @NgModule({
-  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent,  ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent],
+  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent,  ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent, VideojuegoListHomeComponent, VideojuegoListDetailsComponent],
   imports: [
     CommonModule,
     ParametersRoutingModule,

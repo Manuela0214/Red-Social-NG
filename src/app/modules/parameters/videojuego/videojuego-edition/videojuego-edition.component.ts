@@ -4,8 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VideojuegoService } from 'src/app/services/parameters/videojuego.service';
 import { VideojuegoModel } from 'src/app/models/parameters/videojuego.model';
 import { FormsConfig } from 'src/app/config/forms-config';
+import { CategoriaModel } from 'src/app/models/parameters/categoria.model';
+import { CategoriaService } from 'src/app/services/parameters/categoria.service';
 
 declare const showMessage : any;
+declare const initSelect:any;
+
 
 @Component({
   selector: 'app-videojuego-edition',
@@ -18,10 +22,12 @@ export class VideojuegoEditionComponent implements OnInit {
   nombreMinLength = FormsConfig.PARAM_NOMBRE_MIN_LENGTH;
   codigoMinLength = FormsConfig.PARAM_CODIGO_MIN_LENGTH;
   id: String;
+  categoriaList : CategoriaModel[];
   
   constructor(private fb:FormBuilder,
     private service: VideojuegoService,
     private router: Router,
+    private categoriaService: CategoriaService,
     private route: ActivatedRoute ) {
       this.id = this.route.snapshot.params["id"];
       console.log('id a editar= '+ this.id);
@@ -30,8 +36,10 @@ export class VideojuegoEditionComponent implements OnInit {
   } 
 
   ngOnInit(): void {
+    this.fillSelect();
     this.FormBuilding();
     this.getDataOfRecord();
+    this.fillFields();
   }
 
   FormBuilding(){  
@@ -51,11 +59,8 @@ export class VideojuegoEditionComponent implements OnInit {
       this.service.getRecordById(this.id).subscribe(
         data =>{
           console.log(data);
-          
           this.fgv.id.setValue(data.id);
-          
           this.fgv.categoriaId.setValue(data.categoriaId);
-          
           this.fgv.nombre.setValue(data.nombre);
         },
         error  =>{
@@ -100,8 +105,32 @@ export class VideojuegoEditionComponent implements OnInit {
     return model;
   }
 
+
+  fillFields(){
+    this.service.getRecordById(this.id).subscribe(
+      data=>{
+        this.fgv.id.setValue(data.id);
+      },error=>{
+        showMessage("record not found")
+        this.router.navigate(["/parameters/videojuego-list"]);
+      }
+    );
+  }
   get fgv(){
     return this.fgValidator.controls;
   }
+
+  fillSelect(){
+    this.categoriaService.getAllRecords().subscribe(
+      data=>{
+       this.categoriaList=data; 
+       initSelect();
+ 
+      },error=>{
+       console.error("eror carga de categorias")
+      }
+    );
+   }
+ 
 
 }

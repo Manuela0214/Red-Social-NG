@@ -13,6 +13,7 @@ import {VideojuegoModel} from '../../models/parameters/videojuego.model';
 export class VideojuegoService {
   entity='videojuego';
   token :String =''
+  filter:String ='?filter={"include":[{"relation":"categoria"}]}' ;
   
     constructor(private http: HttpClient, private securityService:SecurityService) {
       this.token=this.securityService.getToken();
@@ -23,7 +24,7 @@ export class VideojuegoService {
       * get all records
       */
     getAllRecords():Observable<VideojuegoModel[]>{
-      return this.http.get<VideojuegoModel[]>(`${ServiceConfig.BASE_URL}${this.entity}`);
+      return this.http.get<VideojuegoModel[]>(`${ServiceConfig.BASE_URL}${this.entity}/${this.filter}`);
     }
   
     /**
