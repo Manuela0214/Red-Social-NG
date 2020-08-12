@@ -1,5 +1,5 @@
 .hero{
+    background-image: url(src\app\public\master-page\hero\images\heroImage.PNG);
     width: 100%;
-    height: 300px;
-    background-color: blue;
+    height: 600px;   
 }
