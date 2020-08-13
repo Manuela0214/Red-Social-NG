@@ -11,9 +11,14 @@ declare const initSelect:any;
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
+  template: `<re-captcha (resolved)="resolved($event)" siteKey="YOUR_SITE_KEY"></re-captcha>`,
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+}
 
   fgValidator: FormGroup;
   namesMinLength = FormsConfig.NAMES_MIN_LENGTH;

@@ -1,3 +1,4 @@
+<div class="container-fluid bg-success" style = "width: 800px"> 
 <fieldset>
     <legend align= "center">Formulario de registro</legend>
     <div class="row">
@@ -153,6 +154,20 @@
             </div>
             </div>
         </div>
+        <div class="row">
+            <div class="row">
+            <div class="div_recaptcha">
+            <!-- 
+                the SITE_KEY is the sitekey from your admin console.
+                use form control for validation
+            -->
+                <re-captcha (resolved)="resolved($event)" 
+                    formControlName="recaptchaReactive" 
+                    siteKey="6LfsJr4ZAAAAAJ6JjIRtmk-z_ENAnKZJgLEEd2ZP" id="recaptcha">  
+                </re-captcha>
+            </div>
+        </div>
+        </div>
         <!--
         <div class="row">
             <div class="input-field col s6">
@@ -171,3 +186,4 @@
         </form>
     </div>
 </fieldset>
+
