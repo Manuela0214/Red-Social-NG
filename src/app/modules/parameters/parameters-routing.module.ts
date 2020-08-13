@@ -16,6 +16,7 @@ import { VideojuegoCreationComponent} from './videojuego/videojuego-creation/vid
 import { VideojuegoEditionComponent} from './videojuego/videojuego-edition/videojuego-edition.component';
 import { VideojuegoListComponent} from './videojuego/videojuego-list/videojuego-list.component';
 import { VideojuegoRemoveComponent} from './videojuego/videojuego-remove/videojuego-remove.component';
+import { VideojuegoImagesComponent } from './videojuego/videojuego-images/videojuego-images.component';
 
 
 const routes: Routes = [
@@ -75,6 +76,10 @@ const routes: Routes = [
   {
     path:'videojuego-edition/:id',
     component: VideojuegoEditionComponent
+  },
+  {
+    path:'videojuego-images/:id',
+    component: VideojuegoImagesComponent
   },
   {
     path:'videojuego-remove',
