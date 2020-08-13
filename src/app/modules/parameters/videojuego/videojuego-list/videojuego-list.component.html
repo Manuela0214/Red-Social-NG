@@ -2,6 +2,7 @@
  <a  routerLink = "/parameters/videojuego-creation" class="waves-effect waves-light btn"><i class="material-icons left">add</i>Añadir</a>
  <br/>
  <br />
+
 <table class="highlight responsive-table">
     <thead>
         <tr>
@@ -12,8 +13,12 @@
                 Categoria
             </td>
             <td>
+                Images
+            </td>
+            <td>
                 Edit
             </td>
+            
             <td>
                 Remove
             </td>
@@ -28,13 +33,20 @@
                 {{r.categoria.nombre}}
             </td>
             <td>
-                
-        <a  routerLink = "/parameters/videojuego-edition/{{r.id}}"  routerLinkActive="router-link-active" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Editar</a>
+
+                <a routerLink="/parameters/videojuego-images/{{r.id}}" routerLinkActive="router-link-active"
+                    class="waves-effect waves-light btn orange"><i class="material-icons left">edit</i>Images</a>
             </td>
             <td>
-                <button (click) = "RemoveConfirmation(r.id)" class="btn  red waves-effect waves-light" type="button" name="action">Borrar
+
+                <a routerLink="/parameters/videojuego-edition/{{r.id}}" routerLinkActive="router-link-active"
+                    class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Editar</a>
+            </td>
+            <td>
+                <button (click)="RemoveConfirmation(r.id)" class="btn  red waves-effect waves-light" type="button"
+                    name="action">Borrar
                     <i class="material-icons right">delete</i>
-                  </button>
+                </button>
             </td>
         </tr>
     </tbody>
@@ -42,17 +54,17 @@
 <pagination-controls (pageChange)="page = $event"></pagination-controls>
 <ngx-spinner></ngx-spinner>
 
-  <!-- Modal Structure -->
-  <div id="removeConfirmationModal" class="modal">
+<!-- Modal Structure -->
+<div id="removeConfirmationModal" class="modal">
     <div class="modal-content">
-      <h4>Eliminar Confirmation </h4>
-      <p > ¿Estás seguro de borrar este videojuego?</p>
+        <h4>Eliminar Confirmation </h4>
+        <p> ¿Estás seguro de borrar este videojuego?</p>
     </div>
     <div class="modal-footer">
-        <button (click) = "RemoveRecord()" class="btn  red waves-effect waves-light" type="button" name="action">Confirmar
+        <button (click)="RemoveRecord()" class="btn  red waves-effect waves-light" type="button" name="action">Confirmar
             <i class="material-icons right">delete</i>
-          </button>
-      
-      <a class="modal-close  waves-effect waves-green btn-flat">cerrar</a>
+        </button>
+
+        <a class="modal-close  waves-effect waves-green btn-flat">cerrar</a>
     </div>
-  </div>
+</div>
