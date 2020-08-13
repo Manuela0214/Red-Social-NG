@@ -1,5 +1,81 @@
 .hero{
-    background-image: url(src\app\public\master-page\hero\images\heroImage.PNG);
     width: 100%;
-    height: 600px;   
+    height: 580px;
+    background-image: url('images/demo.PNG');
 }
+.proyectos{
+	position: relative;
+	padding: 1em;
+
+	display:table;
+}
+
+.proyecto{
+	display: table-cell;
+	padding: 1em;
+    width: 50%;
+    
+}
+
+.proyecto__imagen{
+  width: 80%;
+  position: relative;
+  padding: 2%;
+}
+
+.container-fluid {
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.proyecto__titulo{
+	color: #29597C; 
+  text-align: center;
+}
+
+.proyecto__descripcion{
+  color: #797D7F;
+  text-align: center;
+}
+
+
+/*-------------------*/
+
+.proyectos{
+  margin-left:1em;
+  margin-right:1em;
+  position: relative;
+}
+
+.titulo_seccion{
+  color: #29597C; 
+  position: relative;
+  padding: 5%;
+}
+
+h1{
+  text-align: center;
+}
+
+p{
+  padding: 10%;
+  font-size: large;
+}
+/*
+.banner{
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 20px);
+  background-color: #0F6A62;
+  background-size: cover;
+  background-position: center;
+  transition: all .1s ease-in-out;
+  background-image: url('../images/demo.PNG');
+}*/
+
+
+
+
