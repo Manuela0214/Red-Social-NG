@@ -1,7 +1,7 @@
 import { RegistroModel } from "./registro.model";
 
 export class UsuarioModel{
-    id?:string;
+    id?:String;
     primer_nombre:string;
     segundo_nombre?:string;
     primer_apellido:string;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SecurityService } from 'src/app/services/security.service';
+import { UsuarioModel } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-side-menu',
@@ -12,6 +13,9 @@ export class SideMenuComponent implements OnInit {
   isLogged: Boolean = false;
   rol: number = 2;
   subscription: Subscription;
+  puesSi : String = "";
+  usuario : UsuarioModel;
+  id_Usuario:String;
 
   constructor(private service: SecurityService) { }
 
@@ -20,6 +24,7 @@ export class SideMenuComponent implements OnInit {
       data => {
         this.rol =data.rol;
         this.isLogged = data.isLogged;
+        this.puesSi = data.nombre_usuario;
         
       });
   }

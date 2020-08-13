@@ -1,12 +1,15 @@
 
 <ul id="slide-out" class="sidenav cyan">
-  <li><div class="user-view">
+  <li><div class="user-view" >
     <div class="background">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQoafU__5iPYJ-3KqhD24AFEfdHz1J7KNebyQ&usqp=CAU">
     </div>
     <a href="#user"><img class="circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ9Kwm06Vk6AdmuOxgxfZKTFhoASN_rf7DXAg&usqp=CAU"></a>
-    <a *ngIf="isLogged && rol == 2" >John Doe</a>
-    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+
+    <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a ><span class="white-text ">{{puesSi}}</span></a>
+
+   
   </div>
   
   <a class="waves-effect" routerLink='/security/edit-profile'>Editar Perfil</a>
