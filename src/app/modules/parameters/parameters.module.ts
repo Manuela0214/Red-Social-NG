@@ -25,10 +25,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { VideojuegoListHomeComponent } from './videojuego/videojuego-list-home/videojuego-list-home.component';
 import { VideojuegoListDetailsComponent } from './videojuego/videojuego-list-details/videojuego-list-details.component';
 import { VideojuegoImagesComponent } from './videojuego/videojuego-images/videojuego-images.component';
+import { ConsolaImagesComponent } from './consola/consola-images/consola-images.component';
 
 
 @NgModule({
-  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent,  ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent, VideojuegoListHomeComponent, VideojuegoListDetailsComponent, VideojuegoImagesComponent],
+  declarations: [VideojuegoCreationComponent, VideojuegoEditionComponent, VideojuegoListComponent, VideojuegoRemoveComponent, CategoriaCreationComponent, CategoriaEditionComponent, CategoriaListComponent,  ConsolaCreationComponent, ConsolaEditionComponent, ConsolaListComponent, ConsolaRemoveComponent, OfertaCreationComponent, OfertaEditionComponent, OfertaListComponent, OfertaRemoveComponent, VideojuegoListHomeComponent, VideojuegoListDetailsComponent, VideojuegoImagesComponent, ConsolaImagesComponent],
   imports: [
     CommonModule,
     ParametersRoutingModule,

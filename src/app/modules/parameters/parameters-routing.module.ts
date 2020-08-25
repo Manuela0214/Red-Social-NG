@@ -17,7 +17,7 @@ import { VideojuegoEditionComponent} from './videojuego/videojuego-edition/video
 import { VideojuegoListComponent} from './videojuego/videojuego-list/videojuego-list.component';
 import { VideojuegoRemoveComponent} from './videojuego/videojuego-remove/videojuego-remove.component';
 import { VideojuegoImagesComponent } from './videojuego/videojuego-images/videojuego-images.component';
-
+import {ConsolaImagesComponent} from './consola/consola-images/consola-images.component';
 
 const routes: Routes = [
   {
@@ -84,6 +84,10 @@ const routes: Routes = [
   {
     path:'videojuego-remove',
     component: VideojuegoRemoveComponent
+  },
+  {
+    path:'consola-images/:id',
+    component: ConsolaImagesComponent
   }
 ];
 
