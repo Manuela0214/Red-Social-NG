@@ -33,6 +33,10 @@ export class VideojuegoImagesService {
     getRecordById(id:String):Observable<VideojuegoImageModel>{
       return this.http.get<VideojuegoImageModel>(`${ServiceConfig.BASE_URL}${this.entity}/${id}`);
     }
+
+    getRecordByVideojuegoId(videojuegoid:String):Observable<VideojuegoImageModel[]>{
+      return this.http.get<VideojuegoImageModel[]>(`${ServiceConfig.BASE_URL}/videojuegos/${videojuegoid}/imagens`);
+    }
   
   
     /**
@@ -42,6 +46,16 @@ export class VideojuegoImagesService {
     UploadVideojuegoImage(formData: FormData,order: number, videojuegoId:String):Observable<UploadImageModel>{
       
      return this.http.post<UploadImageModel>(`${ServiceConfig.BASE_URL}videojuegoImagen?videojuegoId=${videojuegoId}&order=${order}`, formData, {
+      headers: new HttpHeaders({
+        Authorization : `Bearer ${this.token}`
+
+      })
+    });
+  }
+
+
+  DeleteRecord(recordId: String):Observable<any>{
+    return this.http.delete(`${ServiceConfig.BASE_URL}/videojuego-imagen/${recordId}`, {
       headers: new HttpHeaders({
         Authorization : `Bearer ${this.token}`
 

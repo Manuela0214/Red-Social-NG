@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { VideojuegoImagesService } from '../../../../services/parameters/videojuego-images.service';
+import { VideojuegoImageModel } from 'src/app/models/parameters/videojuego-image.model';
+import { Subscription } from 'rxjs';
 
 declare const showMessage: any;
+declare const showRemoveConfirmationWindow : any;
+
 
 @Component({
   selector: 'app-videojuego-images',
@@ -14,6 +18,9 @@ export class VideojuegoImagesComponent implements OnInit {
 
   fgValidator: FormGroup;
   videojuegoId: String;
+  videojuegoImagenesList : VideojuegoImageModel[];
+  idToRemove : String;
+
 
 
   constructor(private fb: FormBuilder,
@@ -24,6 +31,18 @@ export class VideojuegoImagesComponent implements OnInit {
     this.FormBuilding();
     this.videojuegoId = this.route.snapshot.params["id"]
     this.fgv.videojuegoId.setValue(this.videojuegoId)
+    this.gettAllImagesByVideojuegoId();
+  }
+
+  gettAllImagesByVideojuegoId(){
+    this.servicioJuego.getRecordByVideojuegoId(this.videojuegoId).subscribe(
+      data=>{
+        this.videojuegoImagenesList = data;
+      },
+      err=>{
+        showMessage("Error al cargar las imagenes actuales del videojuego")
+      }
+    )
   }
 
   FormBuilding() {
@@ -51,6 +70,8 @@ export class VideojuegoImagesComponent implements OnInit {
           this.fgv.path.setValue(data.filename);
           
       showMessage("se creó la imagen correctamente")
+      
+      this.gettAllImagesByVideojuegoId();
 
         },error=>{
           
@@ -71,6 +92,23 @@ export class VideojuegoImagesComponent implements OnInit {
 
   get fgv() {
     return this.fgValidator.controls;
+  }
+
+  RemoveImage(){
+    this.servicioJuego.DeleteRecord(this.idToRemove).subscribe(
+      data=>{
+        this.gettAllImagesByVideojuegoId();
+      },
+      err =>{
+        showMessage("No se pudo borrar la imagen me neño")
+      }
+    )
+  }
+
+
+  RemoveConfirmation(id){
+    this.idToRemove = id;
+    showRemoveConfirmationWindow()
   }
 
 }
