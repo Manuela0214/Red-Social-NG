@@ -14,7 +14,7 @@
 
                         </div>
                     </div>
-                    <input type="text" formControlName="path" />
+                    <input type="hidden" formControlName="path" />
                 </div>
                 <div class="input-field col s3">
                     <input formControlName="order" id="Order" type="number" class="validate">
@@ -32,95 +32,34 @@
         </form>
     </div>
     <div class="row">
-        <div class="col s4 m6">
+        <div *ngFor="let i of videojuegoImagenesList"class="col s4 m6">
             <div class="card">
                 <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
+                    <img src="http://localhost:3000/files/2/{{i.id}} " class = "videojuegoImage">
+                    <span class="card-title order">Order: {{i.order}}</span>
                 </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
+               
                 <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s4 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s4 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s4 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s4 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s4 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="images/sample-1.jpg">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
+                    <button class="btn waves-effect waves-light" (click)="RemoveConfirmation(i.id)" type="button" name="action">Remove
+                        <i class="material-icons right">delete</i>
+                      </button>
                 </div>
             </div>
         </div>
     </div>
 </fieldset>
+
+
+<div id="removeConfirmationModal" class="modal">
+    <div class="modal-content">
+        <h4>Eliminar Confirmation </h4>
+        <p> ¿Estás seguro de borrar este videojuego?</p>
+    </div>
+    <div class="modal-footer">
+        <button (click)="RemoveImage()" class="btn  red waves-effect waves-light" type="button" name="action">Confirmar
+            <i class="material-icons right">delete</i>
+        </button>
+
+        <a class="modal-close  waves-effect waves-green btn-flat">cerrar</a>
+    </div>
+</div>

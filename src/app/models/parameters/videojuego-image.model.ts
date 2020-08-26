@@ -6,6 +6,6 @@ export class VideojuegoImageModel{
     id?:String;
     path:String;
     order:number;
-    Videojuego:VideojuegoModel;
+    Videojuego?:VideojuegoModel;
     videojuegoId:String;
 }
