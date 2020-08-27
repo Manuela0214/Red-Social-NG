@@ -10,6 +10,7 @@ import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ParametersModule } from './modules/parameters/parameters.module';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import { ParametersModule } from './modules/parameters/parameters.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ParametersModule
+    ParametersModule,
+    BrowserModule,
+    RecaptchaModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
