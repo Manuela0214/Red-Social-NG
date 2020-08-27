@@ -1,1 +1,17 @@
-<p>videojuego-list-home works!</p>
+<div class="row">
+    <div *ngFor="let v of videojuegoList" class="col s4 m6">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://localhost:3000/files/2/{{v.imagenes[0].id}} " class="videojuegoImage">
+                <span class="card-title order">Nombre: {{v.nombre}}</span>
+            </div>
+
+            <div class="card-action">
+                <button class="btn waves-effect waves-light" (click)="OpenDetails(v.id)" type="button"
+                    name="action">Remove
+                    <i class="material-icons right">mview</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -38,6 +38,11 @@ import { VideojuegoImagesComponent } from './videojuego/videojuego-images/videoj
     ReactiveFormsModule,
     FormsModule
 
+  ],
+  exports:[
+    VideojuegoListComponent,
+    VideojuegoImagesComponent,
+    VideojuegoListHomeComponent
   ]
 })
 export class ParametersModule { }

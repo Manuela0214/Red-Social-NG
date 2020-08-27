@@ -9,6 +9,7 @@ import { SideMenuComponent } from './public/master-page/side-menu/side-menu.comp
 import { HeroComponent } from './public/master-page/hero/hero.component';
 import { FooterComponent } from './public/master-page/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ParametersModule } from './modules/parameters/parameters.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule,
+    ParametersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
