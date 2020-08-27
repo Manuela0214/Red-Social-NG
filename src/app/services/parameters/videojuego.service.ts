@@ -13,7 +13,7 @@ import {VideojuegoModel} from '../../models/parameters/videojuego.model';
 export class VideojuegoService {
   entity='videojuego';
   token :String =''
-  filter:String ='?filter={"include":[{"relation":"categoria"}]}' ;
+  filter:String ='?filter={"include":[{"relation":"categoria"},{"relation":"imagenes"}]}' ;
   
     constructor(private http: HttpClient, private securityService:SecurityService) {
       this.token=this.securityService.getToken();

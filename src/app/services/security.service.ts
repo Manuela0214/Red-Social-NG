@@ -114,8 +114,12 @@ export class SecurityService {
 
 
   getToken():String{
-    let currentSession = JSON.parse(this.getSessionData());
-    return currentSession.token;
+    let sessionData = this.getSessionData();
+    let currentSession='';
+    if(sessionData){
+    currentSession = JSON.parse(sessionData).token;
+  }
+    return currentSession;
 
 
   }
